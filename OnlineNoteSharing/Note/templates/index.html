@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block main %}
+{% load static %}
+<style>
+    .image {
+
+        height: 600px;
+        width: 100%;
+        background-image:url('{% static "image/note1.jpg" %}');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .halfcircle {
+        height: 75px;
+        width: 150px;
+        border-radius: 90px 90px 0px 0px;
+        margin: 0px;
+        background-color: yellow;
+    }
+
+    .halfcirclebuttom {
+        height: 75px;
+        width: 150px;
+        border-radius: 0px 0px 90px 90px;
+        margin: 0px;
+        background-color: blue;
+    }
+
+    .box1 p {
+        font-weight: bold;
+        color: white;
+        font-family: 'Monotype Corsive';
+        text-align: center;
+    }
+
+    .m {
+        margin-top: 10px;
+        font-weight: bold;
+        font-size: 100px;
+        font-family: 'Monotype Corsiva';
+        color: darkred;
+        text-align: center;
+    }
+</style>
+
+<div class="image ">
+    <div class="transprant">
+        <p class="m">Note Sharing Site</p>
+        <h3 class="text-center text-priamry">Just 4 steps to follow</h3>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="box1">
+                    <p class="halfcircle"><i class="fas fa fa-user-circle fa-3x "></i></p>
+                    <p class="halfcirclebuttom">Create Account</p>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="box1">
+                    <p class="halfcircle"><i class="fas fa fa-sign-in fa-3x "></i></p>
+                    <p class="halfcirclebuttom">Login</p>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="box1">
+                    <p class="halfcircle"><i class="fas fa fa-upload fa-3x "></i></p>
+                    <p class="halfcirclebuttom">Upload Note</p>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="box1">
+                    <p class="halfcircle"><i class="fas fa fa-download fa-3x "></i></p>
+                    <p class="halfcirclebuttom">Download Notes</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock  %}

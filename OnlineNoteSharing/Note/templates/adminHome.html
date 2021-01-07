@@ -1,0 +1,50 @@
+{% extends 'adminNav.html' %}
+{% load static %}
+{% block  main %}
+<style>
+.container1{
+    background-color: lightgray;
+    border-radius: 10pt;
+}
+h2,h4{
+    padding: 10px;
+}
+.mydiv:hover{
+    background-color: aqua;
+    transform: translateY(-10px);
+}
+</style>
+<div class="container mt-5">
+ <div class="row">
+     <div class="col-sm-3 text-center mydiv ">
+         <div class="container1">
+             <h2 class="text-primary">{{panding}}</h2>
+            <a href="{% url 'pandingnotes' %}" ><h4 class="text-danger">Panding Notes</h4></a> 
+         </div>
+     </div>
+     <div class="col-sm-3 text-center mydiv ">
+         <div class="container1">
+             <h2 class="text-primary">{{accepted}}</h2>
+            <a href="{% url 'acceptednotes' %}" ><h4 class="text-danger">Accepted Notes</h4></a> 
+         </div>
+     </div>
+     <div class="col-sm-3 text-center mydiv ">
+         <div class="container1">
+             <h2 class="text-primary">{{rejected}}</h2>
+            <a href="{% url 'rejectednotes' %}" ><h4 class="text-danger">Rejected Notes</h4></a> 
+         </div>
+     </div>
+     <div class="col-sm-3 text-center mydiv ">
+         <div class="container1">
+             <h2 class="text-primary">{{all}}</h2>
+            <a href="{% url 'adminallnotes' %}" ><h4 class="text-danger">All Notes</h4></a> 
+         </div>
+     </div>
+ </div>
+</div>
+<footer class="container mt-5 text-center">
+ <p style="font-size: 30pt; color: red; font-weight: bold;">Copyright &COPY; <script>document.write(new Date().getFullYear());</script>
+All Right Reserved <span style="color: brown;">|</span><span style="color: blueviolet;">This website is made with <i class="fas fa-heart icon-heart text-danger"> by </i></span> <a href="#" target="_blank">Shiv Chaudhary</a> </p>
+
+</footer>
+{% endblock  %}

@@ -1,0 +1,63 @@
+{% extends 'userNav.html' %}
+{% block main %}
+<style>
+    .h{
+        border: 1px solid grey;
+    }
+</style>
+<div class="container mt-5" >
+    <div class="text-center">
+        <h1 class="text-danger">Profile</h1>
+    </div>
+    <hr style="border: 2px solid lightgreen;">
+    <div class="row">
+        <div class="col-sm-6">
+          <h2>Full Name :</h2>
+        </div>
+        <div class="col-sm-6 " style="text-transform: capitalize;">
+         <h3>{{user.first_name}} {{user.last_name}} </h3>
+        </div>
+    </div>
+    <hr class="h">
+    <div class="row">
+        <div class="col-sm-6">
+          <h2>Email Id :</h2>
+        </div>
+        <div class="col-sm-6 ">
+         <h3>{{user.username}} </h3>
+        </div>
+    </div>
+    <hr class="h">
+    <div class="row">
+        <div class="col-sm-6">
+          <h2>Contact :</h2>
+        </div>
+        <div class="col-sm-6 ">
+         <h3>{{data.contact}} </h3>
+        </div>
+    </div>
+    <hr class="h">
+    <div class="row">
+        <div class="col-sm-6">
+          <h2>Branch :</h2>
+        </div>
+        <div class="col-sm-6 ">
+         <h3>{{data.branch}} </h3>
+        </div>
+    </div>
+    <hr class="h">
+    <div class="row">
+        <div class="col-sm-6">
+          <h2>I Am :</h2>
+        </div>
+        <div class="col-sm-6 ">
+         <h3>{{data.role}} </h3>
+        </div>
+    </div>
+    <hr class="h">
+    
+    <div class="text-center">
+       <a href="{% url 'editprofile' %}" class="btn btn-primary btn-lg"> Edit Profile</a>
+    </div>
+</div>
+{% endblock %}

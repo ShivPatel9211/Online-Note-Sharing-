@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-6 ">
+            <h2>New User</h2>
+            <hr>
+            <p>By creating an account with our website , you will be able to upload and downoad the 
+                note of any faculty and many more....
+            </p>
+           <a href="{% url 'usercreation' %}" class="btn btn-danger text-center  ">Create An Account</a>
+        </div>
+        <div class="col-sm-6">
+         <h2>User Login</h2>
+         <hr>
+         <p>Please fillup the from below</p>
+         <br>
+         <br>
+         <form method="POST" >
+             {% csrf_token %}
+           <label >Enter Your Email Id</label> 
+         <input type="email" name="email" class="form-control" placeholder="Enter your email address" >
+         <label> Enter Your Password </label>
+         <input type="password" name="password" class="form-control" placeholder="Enter your password" > <br>
+         <button type="submit" class="btn btn-primary text-center">Login</button>
+        </form>
+        </div>
+    </div>
+
+</div>
+{% ifequal error "no" %}
+<script>
+    alert("Logged in successfully");
+    window.location=('{% url "profile" %}')
+</script>
+{% endifequal %}
+{% ifequal error "yes" %}
+<script>
+    alert("Sorry!! something went wrong, Try Again");
+</script>
+{% endifequal %}
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-6 mt-5 ">
+            <h2 class="text-danger">If you have already created an account then please go to login page</h2>
+            <hr>
+            <div class="text-center">
+                <a href="{% url 'userlogin' %}" class="btn btn-danger text-center  ">Go To The Login Page</a>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <h2>Sign up</h2>
+            <hr>
+            <form method="POST">
+                {% csrf_token %}
+                <label> Enter Your Frist Name </label>
+                <input type="text" name="fname" class="form-control" placeholder="Enter your First Name">
+                <label> Enter Your Last Name </label>
+                <input type="text" name="lname" class="form-control" placeholder="Enter your Last Name">
+                <label> Enter Your Contact </label>
+                <input type="text" name="contact" class="form-control" placeholder="Enter your Contact Number">
+                <label> Enter Your Email </label>
+                <input type="text" name="email" class="form-control" placeholder="Enter your email address" autocomplete="off">
+                <label> Enter Your Password </label>
+                <input type="password" name="password" class="form-control" placeholder="Enter your password" autocomplete="off"> <br>
+                <label>Branch</label>
+                <select name="branch" class="form-control">
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Mechanical">Mechanical</option>
+                    <option value="Civil">Civil</option>
+                    <option value="Electrical">Electrical</option>
+                    <option value="Electronic">Electronic</option>
+                </select>
+                <label> Are You ??</label>
+                <br>
+                <input type="radio" name="role" value="Teacher"> Teacher
+                <input type="radio" name="role" value="Student"> Student
+                <br>
+                <br>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary  btn-lg"
+                        style="margin-left: auto; margin-right: auto;">Sign UP</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+{% ifequal error "no" %}
+<script>
+    alert("User Created successfully");
+    window.location=('{% url "userlogin" %}')
+</script>
+{% endifequal %}
+{% ifequal error "yes" %}
+<script>
+    alert("Sorry!! something went wrong, Try Again");
+</script>
+{% endifequal %}
+{% endblock %}

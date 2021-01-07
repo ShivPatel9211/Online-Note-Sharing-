@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block main %}
+{% load static %}
+{% ifequal error "no" %}
+<script>
+    alert("Logged in successfully");
+    window.location=('{% url "adminHome" %}')
+</script>
+{% endifequal %}
+{% ifequal error "yes" %}
+<script>
+    alert("Invalid Login Credentials, Try Again");
+</script>
+{% endifequal %}
+<div class="container mt-5" style="background-color: whitesmoke;">
+    <div class="row">
+        <div class="col-sm-6 ">
+           <img src="{% static 'image/admin1.jpg' %}" class="img-thumbnail" style="width: 100%;">
+        </div>
+        <div class="col-sm-6">
+         <h2>Admin Login</h2>
+         <hr>
+         <p>Please fillup the from below</p>
+         <br>
+         <br>
+         <form method="POST" >
+             {% csrf_token %}
+           <label>Enter User Name</label> 
+         <input type="text" name="uname" class="form-control" placeholder="Enter your User Name" >
+         <label> Enter Your Password </label>
+         <input type="password" name="password" class="form-control" placeholder="Enter your password" > <br>
+         <button type="submit" class="btn btn-primary text-center">Login</button>
+        </form>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}
